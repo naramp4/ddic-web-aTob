@@ -13,7 +13,7 @@ import java.util.List;
 public class apiController {
 
     @Autowired
-    CarRepository carRepository;
+    private CarRepository carRepository;
 
     @RequestMapping("/car-api")
     public JSONArray getCars(){

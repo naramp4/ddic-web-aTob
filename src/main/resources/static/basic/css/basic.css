@@ -1,0 +1,56 @@
+h1{
+    font-size:14px;
+    border-size:1px;
+    border-color:#000;
+    border-style:solid;
+}
+section p {
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    background:#fff;
+    /*background:url('https://blog.kakaocdn.net/dn/XlVZH/btqIH50as13/LwCnDkeRzRz9kETtUMaHyk/img.jpg');*/
+    border: 1px solid #000;
+}
+section a {
+    border: 1px solid #000;
+}
+
+.box-section p, .box-section a{
+    border: 10px solid red;
+    /*padding:20px;
+    margin:40px;*/
+    /*width:500px;
+    height:600px;*/
+}
+
+section.container {
+    display:flex;
+    background:darkred;
+    width:1000px;
+    height:400px;
+    justify-content: space-between;
+    align-items:center;
+}
+.item{
+    background:red;
+    border:1px solid #fff;
+    height: 50px;
+    color:#fff;
+    width: 10%;
+
+}
+
+.themed-grid-col {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgba(86, 61, 124, .15);
+  border: 1px solid rgba(86, 61, 124, .2);
+}
+
+.themed-container {
+  padding: 15px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 123, 255, .15);
+  border: 1px solid rgba(0, 123, 255, .2);
+}

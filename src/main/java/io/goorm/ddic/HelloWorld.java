@@ -1,10 +1,7 @@
 package io.goorm.ddic;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter @Setter
 public class HelloWorld {
-    private String hello;
-
+    public static void main(String[] args) {
+        System.out.println("hi");
+    }
 }

@@ -26,12 +26,12 @@ public class CarService {
     private CarRepository carRepository;
 
     //api로 Car 데이터 입력하기
-    public void createCarUseApi() throws IOException, ParseException {
+    public void createCarUseApi(String pageNum, String limit) throws IOException, ParseException {
         // 1. URL을 만들기 위한 StringBuilder.
         StringBuilder urlBuilder = new StringBuilder("https://open.jejudatahub.net/api/proxy/atDab6t8218btaa122b26DDtbatD86t1/o4eo6b7r31416er4je41oo7pj73676tp"); /*URL*/
         // 2. 오픈 API의요청 규격에 맞는 파라미터 생성, 발급받은 인증키.
-        urlBuilder.append("?" + URLEncoder.encode("number","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));
-        urlBuilder.append("&" + URLEncoder.encode("limit","UTF-8") + "=" + URLEncoder.encode("3", "UTF-8"));
+        urlBuilder.append("?" + URLEncoder.encode("number","UTF-8") + "=" + URLEncoder.encode(pageNum, "UTF-8"));
+        urlBuilder.append("&" + URLEncoder.encode("limit","UTF-8") + "=" + URLEncoder.encode(limit, "UTF-8"));
         // 3. URL 객체 생성.
         URL url = new URL(urlBuilder.toString());
         // 4. 요청하고자 하는 URL과 통신하기 위한 Connection 객체 생성.
@@ -52,9 +52,9 @@ public class CarService {
         // 10. 객체 해제.
 
         JSONParser parser = new JSONParser();
-        // 2. 문자열을 JSON 형태로 JSONObject 객체에 저장.
+        // 11. 문자열을 JSON 형태로 JSONObject 객체에 저장.
         JSONObject obj = (JSONObject)parser.parse(rd.readLine());
-        // 3. 필요한 리스트 데이터 부분만 가져와 JSONArray로 저장.
+        // 12. 필요한 리스트 데이터 부분만 가져와 JSONArray로 저장.
         JSONArray dataArr = (JSONArray) obj.get("data");
         JSONObject tmp = (JSONObject) dataArr.get(0);
         for (int i = 0; i < dataArr.size(); i++){
@@ -84,8 +84,8 @@ public class CarService {
         carRepository.deleteAll();
     }
 
-    public void updateCar(int id, Car param){
-        Car findCar = carRepository.findOne(id);
-        findCar.setChargingPlace(param.getChargingPlace());
-    }
+//    public void updateCar(int id, Car param){
+//        Car findCar = carRepository.findOne(id);
+//        findCar.setChargingPlace(param.getChargingPlace());
+//    }
 }
